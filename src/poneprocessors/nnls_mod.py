@@ -54,10 +54,10 @@ def merge_close(p, s, a, b, greater_than_min, allowed, n=5):
 
 @guvectorize(
     [
-        "void(float32[:,::1], float32[::1], float32, float32, boolean, float32, float32, float32[::1])",
-        "void(float64[:,::1], float64[::1], float64, float32, boolean, float32,float32, float64[::1])",
+        "void(float32[:,::1], float32[::1], float32[:,::1], float32, float32, boolean, float32, float32, float32[::1])",
+        "void(float64[:,::1], float64[::1], float64[:,::1], float64, float32, boolean, float32,float32, float64[::1])",
     ],
-    "(m,n),(m),(),(),(),(),(),(n)",
+    "(m,n),(m),(n,n),(),(),(),(),(),(n)",
     # nopython=True,
     forceobj=True,
     **nb_kwargs,
