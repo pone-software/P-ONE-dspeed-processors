@@ -84,6 +84,8 @@ def optimize_nnls_mod(
         Coefficient matrix
     b : (m,) ndarray, float
         Right-hand side vector.
+    ata: ndarray
+        a.T @ a
     maxiter: int
         Maximum number of iterations.
     tol: float
@@ -94,6 +96,9 @@ def optimize_nnls_mod(
         If matrix is not solvable (e.g. because of non full rank caused by
         float precision), no error is raised but all elements of the
         solution vector are set NaN
+    min_value: float
+        threshold value.
+    batch_size: int
     x : ndarray
         Solution vector.
 
